@@ -1,0 +1,30 @@
+{namespace m=TYPO3\Media\ViewHelpers}
+{namespace c=WL\Album\ViewHelpers\}
+<f:layout name="Default"/>
+
+<f:section name="Title">A list of Albums</f:section>
+
+<f:section name="Content">
+	<f:if condition="{albums}">
+		<f:then>
+			<ul>
+				<f:for each="{albums}" as="album">
+					<li>
+						<f:link.action action="edit" arguments="{album:album}">{album.name} edit</f:link.action>
+						<f:for each="{album.image}" as="pic">
+							<m:image image="{pic}" maximumWidth="20" maximumHeight="20" allowCropping="true" alt="sample" />
+						</f:for>
+					</li>
+				</f:for>
+
+			</ul>
+		</f:then>
+		<f:else>
+			<p>No albums created yet.</p>
+		</f:else>
+	</f:if>
+
+
+	<p><f:link.action action="new">Create new Album with some Images</f:link.action></p>
+
+</f:section>

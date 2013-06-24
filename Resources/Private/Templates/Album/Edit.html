@@ -1,0 +1,68 @@
+{namespace c=WL\Album\ViewHelpers}
+{namespace m=TYPO3\Media\ViewHelpers}
+<f:layout name="Default" />
+<f:section name="Title">Album</f:section>
+<f:section name="Content">
+	<p>Edit<p>
+       
+        <f:render partial="FormErrors" arguments="{for: 'album'}" />
+
+	<f:form action="update"  name="album" object="{album}"  enctype="multipart/form-data">
+		<label for="name">Name</label>
+		<f:form.textfield property="name"/>
+		<label for="amount">Amount</label>
+		<f:form.textfield  property="amount" value="{album.amount->f:format.currency()}"/><br>
+		
+	<f:form.upload property="image.0.resource" />	<f:if condition="{album.image.0}">
+    <m:image image="{album.image.0}" maximumWidth="50" maximumHeight="50" alt="uploaded image" allowCropping="true" />
+     <a href="javascript:;" onclick="confirmDelete.showModal('Bild löschen','{f:uri.action(action:'deleteImage',controller:'Album',arguments:{image:album.image.0})}')"><i class="icon-trash"></i></a>
+    <br>
+  </f:if>
+	<f:form.upload property="image.1.resource" />	<f:if condition="{album.image.1}">
+  <m:image image="{album.image.1}" maximumWidth="50" maximumHeight="50" alt="uploaded image" allowCropping="true" /><br></f:if>
+	
+	<f:comment> 		
+		<f:render partial="ImageUpload" arguments="{element:{identifier: 'image.0',uniqueIdentifier: 'image.0',properties: {elementClassAttribute: ''}}}" />	
+	<f:render partial="ImageUpload" arguments="{element:{identifier: 'image.1',uniqueIdentifier: 'image.1',properties: {elementClassAttribute: ''}}}" />	
+
+	<f:render partial="ImageUpload" arguments="{property: 'image.0',image: album.image.0, objectName: objectName, label: 'Bild 1', resource: album.image.0.resource, required: 1}" />	
+		
+
+	<f:render partial="ImageList" arguments="{images: album.image, object:'album',property:'image'}"/>
+		</f:comment> 
+
+
+		<f:comment>  
+			<input type="hidden" name="album[image][{Iterator.index}][resource][submittedFile][filename]" value="{pic.resource.filename}" />
+			<input type="hidden" name="album[image][{Iterator.index}][resource][submittedFile][resourcePointer]" value="{pic.resource.resourcepointer}" id="image{Iterator.index}" />
+			<input type="hidden" name="album[image][{Iterator.index}][__identity]" value="{pic->f:format.identifier()}">
+
+			<f:render partial="ImageUpload" arguments="{property: 'image.99', objectName: 'album', label: 'Bild', resource: album.image.99.resource,pic:pic, required: 0}" />
+
+			<!--funkte-->
+			<f:render partial="ImageUpload" arguments="{property: 'image.0', objectName: 'album', label: 'Bild', resource: album.image.0.resource,pic:pic, required: 0}" />
+
+			<f:render partial="ImageUpload" arguments="{property: 'image.0', objectName: 'album', label: 'Bild', resource: album.image.0.resource, required: 0}" />
+			<f:debug>{album}</f:debug>
+		</f:comment>
+
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+		<f:form.submit value="update" />
+
+	</f:form>
+
+
+
+
+
+</f:section>

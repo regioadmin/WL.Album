@@ -1,0 +1,86 @@
+.komsis_alert {padding-top:50px;}
+.komsis_content {padding-top:40px;}
+
+
+/* aus pagination von bootstrap.css*/
+.page-navigation {
+  height: 36px;
+  margin: 18px 0;
+}
+
+.typo3-widget-paginator {
+  display: inline-block;
+  *display: inline;
+  margin-bottom: 0;
+  margin-left: 0;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+.page-navigation li {
+  display: inline;
+}
+
+
+
+
+.page-navigation a {
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+}
+
+.page-navigationa:hover
+{
+  background-color: #f5f5f5;
+}
+
+.page-navigation .current  {
+  background-color: #f5f5f5;
+  color: #999999;
+  cursor: default;
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+}
+
+input.f3-form-error
+{
+	border: 3px solid red;
+}
+
+.f3-custom-form-error
+{
+color: #b94a48;
+}
+
+.f3-custom-login-form
+{
+width: 500px;
+background-color: #ffffff;
+}
+
+.f3-custom-form-row-required label
+{
+font-weight: bold;
+}
+
+.badge-warning-blink {background-color:#f89406;text-decoration:blink}
+.badge-depreciated {background-color:yellow;}
+
+.multiselector {width:90%;border-left:1px solid #808080;border-top:1px solid #808080;border-bottom:1px solid #fff; border-right:1px solid #fff;}
+.multiselectorinnen {background-color:#FFFFFF; overflow:auto;height:10.1em;border-left:1px solid #404040;border-top:1px solid #404040;border-bottom:1px solid #d4d0c8;border-right:1px solid #d4d0c8;}

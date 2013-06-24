@@ -1,0 +1,45 @@
+{namespace m=TYPO3\Media\ViewHelpers}
+{namespace c=WL\Album\ViewHelpers}
+
+<f:comment>
+property zb object="album" property="image"
+</f:comment>
+
+
+<f:for each="{images}" as="pic" iteration="Iterator">
+	<div class="fileupload fileupload-new" data-provides="fileupload" id="image{Iterator.index}">
+		<div class="fileupload-new thumbnail">
+			<m:image image="{pic}" alt="{pic.resource.filename}" maximumHeight="50" maximumWidth="50" allowCropping="true" />
+		</div>
+		<button class="btn" id="button{Iterator.index}">Entfernen</button>
+		<span style="visibility:hidden"><f:form.upload property="{property}.{Iterator.index}.resource" /></span>
+	</div>
+</f:for>
+
+<script>    $(document).ready(function() {
+	<f:for each="{images}" as="pic" iteration="Iterator">
+			$("#button{Iterator.index}").click(function(){
+				removePic({Iterator.index},"{f:uri.action(action: 'deletePicture', controller: '{object}',arguments: {image:'{pic->f:format.identifier()}'})}");
+});
+</f:for>
+
+function removePic(index,uri)
+{
+	var con = confirm("Wollen Sie das Bild löschen?");
+	if (con ==true)
+	{
+		$("#image"+index).remove();
+
+		$.ajax({
+			type: "POST",
+			url: uri,
+			data: "name=Hallo",
+			success: function(data){
+				alert(data);
+			}
+		});
+
+	}
+};
+});
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{namespace bootstrap=TYPO3\Twitter\Bootstrap\ViewHelpers}
+<html xmlns:f="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8" />
+	<title>
+		<f:render section="Title"/>
+	</title>
+	<f:base/>
+	<bootstrap:include/>
+	<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'komsis.css', package: 'WL.Komsis')}" />
+	<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'bootstrap/assets/js/bootstrap-fileupload.min.css', package: 'WL.Komsis')}">
+
+	<script src="{f:uri.resource(path: 'bootstrap/assets/js/jquery.js', package: 'WL.Komsis')}"></script>
+  <script type="text/javascript" src="{f:uri.resource(path: 'bootstrap/js/bootstrap.min.js', package: 'HendrikFrahmann.Gallery')}"></script>
+	<script src="{f:uri.resource(path: 'bootstrap/assets/js/bootstrap-dropdown.js', package: 'WL.Komsis')}"></script>
+	<script src="{f:uri.resource(path: 'bootstrap/assets/js/bootstrap-fileupload.min.js', package: 'WL.Komsis')}"></script>
+  <script src="{f:uri.resource(path: 'javascript.js', package: 'WL.Album')}"></script>
+</head>
+	<body>
+		<f:flashMessages class="flashmessages" />
+
+		<h1><f:render section="Title" /></h1>
+		<f:render section="Content" />
+	</body>
+</html>

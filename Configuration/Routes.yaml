@@ -1,0 +1,8 @@
+-
+  name: 'ajax'
+  uriPattern: 'wl.album/deletepic'
+  defaults:
+    '@package':    'WL.Album'
+    '@action':     'deletePic'
+    '@controller': 'Album'
+    '@format':     'json'
